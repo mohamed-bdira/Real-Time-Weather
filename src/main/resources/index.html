@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Real Time Weather</title>
+</head>
+<body>
+    <h2>Live Weather Dashboard</h2>
+    <pre id="output">Waiting...</pre>
+    <script>
+        const ws = new WebSocket("ws://localhost:8000/ws");
+        ws.onmessage = event => {
+            document.getElementById("output").textContent = event.data;
+        }
+    </script>
+</body>
+</html>
